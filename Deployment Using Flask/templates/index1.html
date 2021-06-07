@@ -1,0 +1,236 @@
+{% extends "layout.html" %}
+{% block content %}
+<html> 
+<head>
+    <meta charset="UTF-8">
+    <title>Deployment News Commercial/Non-Commercial Classification</title>
+    <style> 
+      input[type=text] {
+        width: 100%;
+        padding: 12px 8px;
+        margin: 8px 0px;
+        box-sizing: border-box;
+        border: 2px solid rgb(97, 92, 92);
+        border-radius: 2px;
+      }
+  
+      .button {
+      background-color: #4CAF50; /* Green */
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+      }
+  
+  .button2 {background-color: #008CBA;} /* Blue */
+  .button3 {background-color: #f44336;} /* Red */ 
+  .button4 {background-color: #e7e7e7; color: black;} /* Gray */ 
+  .button5 {background-color: #555555;} /* Black */
+      </style>
+  </head>
+
+
+<body style="background: rgb(255, 248, 248);">
+<center><h1>Classification to Predict Client Will Make a Deposit or not</h1></center></center>
+<!-- <form action="{{ url_for('predict')}}"method="post"></form> -->
+<form action="/result" method="POST"> 
+<table border="0" align="center">
+    <tr>
+        <td align="right">
+        <label for="Age">Age : </label>
+        </td>
+        <td>
+        <input type="text" id="age" name="age"><br>
+        </td> 
+    </tr>
+
+    <tr>
+        <td align="right">
+        <label for="Job">Job : </label>
+        </td>
+        <td>
+        <input type="text" id="Job" name="Job"><br>
+        </td> 
+    </tr>
+
+        <tr>
+        <td align="right">
+        <label for="Marital">Marital : </label>
+        </td>
+        <td>
+        <input type="text" id="Marital" name="Marital"><br>
+        </td> 
+    </tr>
+
+        <tr>
+        <td align="right">
+        <label for="Education">Education : </label>
+        </td>
+        <td>
+        <input type="text" id="Education" name="Education"><br>
+        </td> 
+    </tr>
+
+        <tr>
+        <td align="right">
+        <label for="Default">Default : </label>
+        </td>
+        <td>
+        <input type="text" id="Default" name="Default"><br>
+        </td> 
+    </tr>
+
+        <tr>
+        <td align="right">
+        <label for="Housing">Housing : </label>
+        </td>
+        <td>
+        <input type="text" id="Housing" name="Housing"><br>
+        </td> 
+    </tr>
+
+        <tr>
+        <td align="right">
+        <label for="Loan">Loan : </label>
+        </td>
+        <td>
+        <input type="text" id="Loan" name="Loan"><br>
+        </td> 
+    </tr>
+
+        <tr>
+        <td align="right">
+        <label for="Contact">Contact : </label>
+        </td>
+        <td>
+        <input type="text" id="Contact" name="Contact"><br>
+        </td> 
+    <!-- </tr>
+
+        <tr>
+        <td align="right">
+        <label for="Month">Month : </label>
+        </td>
+        <td>
+        <input type="text" id="Month" name="Month"><br>
+        </td> 
+    </tr>
+
+        <tr>
+        <td align="right">
+        <label for="Day of week">Day of week : </label>
+        </td>
+        <td>
+        <input type="text" id="Day of week" name="Day of week"><br>
+        </td> 
+    </tr> -->
+
+        <tr>
+        <td align="right">
+        <label for="Duration">Duration : </label>
+        </td>
+        <td>
+        <input type="text" id="Duration" name="Duration"><br>
+        </td> 
+    </tr>
+
+        <tr>
+        <td align="right">
+        <label for="Campaign">Campaign : </label>
+        </td>
+        <td>
+        <input type="text" id="Campaign" name="Campaign"><br>
+        </td> 
+    </tr>
+
+        <tr>
+        <td align="right">
+        <label for="Pdays">Pdays : </label>
+        </td>
+        <td>
+        <input type="text" id="Pdays" name="Pdays"><br>
+        </td> 
+    </tr>
+
+        <tr>
+        <td align="right">
+        <label for="Previous">Previous : </label>
+        </td>
+        <td>
+        <input type="text" id="Previous" name="Previous"><br>
+        </td> 
+    </tr>
+
+        <tr>
+        <td align="right">
+        <label for="Poutcome">Poutcome : </label>
+        </td>
+        <td>
+        <input type="text" id="Poutcome" name="Poutcome"><br>
+        </td> 
+    </tr>
+
+        <tr>
+        <td align="right">
+        <label for="Emp_var_rate">Emp_var_rate : </label>
+        </td>
+        <td>
+        <input type="text" id="Emp_var_rate" name="Emp_var_rate"><br>
+        </td> 
+    </tr>
+
+        <tr>
+        <td align="right">
+        <label for="Cons_price_idx">Cons_price_idx : </label>
+        </td>
+        <td>
+        <input type="text" id="Cons_price_idx" name="Cons_price_idx"><br>
+        </td> 
+    </tr>
+
+        <tr>
+        <td align="right">
+        <label for="Cons_conf_idx">Cons_conf_idx : </label>
+        </td>
+        <td>
+        <input type="text" id="Cons_conf_idx" name="Cons_conf_idx"><br>
+        </td> 
+    </tr>
+
+        <tr>
+        <td align="right">
+        <label for="Euribor3m">Euribor3m : </label>
+        </td>
+        <td>
+        <input type="text" id="Euribor3m" name="Euribor3m"><br>
+        </td> 
+    </tr>
+
+        <tr>
+        <td align="right">
+        <label for="Nr_employed">Nr_employed : </label>
+        </td>
+        <td>
+        <input type="text" id="Nr_employed" name="Nr_employed"><br>
+        </td> 
+    </tr>
+
+    <tr>
+        <td colspan="2" align="center">
+        <button type="submit" class="button button2">Submit</button>
+        </td>
+    </tr>
+
+</table>
+</form> 
+
+</body>
+
+</html> 
+
+{%  endblock %}
